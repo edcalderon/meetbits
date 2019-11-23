@@ -14,14 +14,15 @@ function scan(IDjunta){
       
       scanner.addListener('scan', function (content) {
 
-      alert(content);
+    //   alert(content);
       swal({
         title: 'QR Escaneado',
         text: 'Haz escaneado una nueva asistencia de la dirección:'+content+'. Desea regitrarla?',
         type: 'question',
-        showCancelButton: false,
+        showCancelButton: true,
         confirmButtonColor: '#DD6B55',
         confirmButtonText: 'SI',
+        cancelButtonText: 'NO',
         // cancelButtonText: false
       }).then((isConfirm) => {
 
@@ -54,6 +55,8 @@ function scan(IDjunta){
 }
 
 function registrar_asistencia(IDjunta,content){ 
+    console.log("content: "+content);
+    console.log("IDjunta: "+IDjunta);
     meetBITS.registrar_asistencia(content,IDjunta,(res =>{
         swal({
             title: 'Asistencia Registrada',
@@ -63,6 +66,13 @@ function registrar_asistencia(IDjunta,content){
             confirmButtonColor: '#DD6B55',
             confirmButtonText: 'OK',
             // cancelButtonText: false
-          })
+          }).then((isConfirm) => {
+
+            if (isConfirm) {
+                actualizar_asistencias(IDjunta, content);
+            } else {
+              // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
+            }
+          });
     }))
 }
