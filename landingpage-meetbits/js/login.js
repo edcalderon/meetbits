@@ -8,7 +8,7 @@ $("#buttonL").click(function() {
                     location.href="homeMod.html";
                 }
                 else {
-                    location.href="homeUser.html";
+                    location.href="vista_user.html";
                 }
             });
         }
