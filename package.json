@@ -4,7 +4,8 @@
   "description": "This is the Admin template with the bootstrap 4",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx gulp"
   },
   "keywords": [
     "admin",
@@ -51,6 +52,7 @@
     "fullcalendar": "^3.9.0",
     "gaugeJS": "^1.3.6",
     "gmaps": "^0.4.24",
+    "gulp-cli": "^2.2.0",
     "inputmask": "^3.3.11",
     "jquery": "^3.3.1",
     "jquery-asColorPicker": "^0.4.4",
@@ -64,6 +66,7 @@
     "masonry-layout": "^4.2.1",
     "moment": "^2.22.1",
     "morris.js": "^0.5.0",
+    "n": "^6.1.3",
     "natives": "^1.1.6",
     "nestable": "^0.2.0",
     "nouislider": "^11.1.0",
