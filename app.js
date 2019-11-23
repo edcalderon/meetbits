@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const { PORT } = require('./config.js')
 const path = require('path')
+const server = require('http').createServer(app);
 
 app.use(express.static(path.join(__dirname, './landingpage-meetbits')))
 
@@ -11,7 +12,7 @@ app.use((req, res, next) => {
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.listen(PORT, () => {
+server.listen(PORT, () => {
 	console.log(`Escuchando en el puerto ${PORT}`);
 });
 
