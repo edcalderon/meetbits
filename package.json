@@ -2,10 +2,10 @@
   "name": "admin",
   "version": "1.0.0",
   "description": "This is the Admin template with the bootstrap 4",
-  "main": "index.js",
+  "main": "app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx gulp"
+    "build": "node app.js"
   },
   "keywords": [
     "admin",
@@ -83,6 +83,14 @@
     "tinymce": "^4.7.11",
     "toastr": "^2.1.4",
     "typeahead.js": "^0.11.1",
-    "wnumb": "^1.1.0"
+    "wnumb": "^1.1.0",
+    "express": "^4.16.4",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.7.1"
+
+  },
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.12.0"
   }
 }
