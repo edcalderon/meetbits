@@ -45,6 +45,7 @@ $(window).load(function(){
             $("#download").on('click', function() { 
                 html2canvas(element, { 
                     onrendered: function(canvas) { 
+                        $("#previewImage").empty(); 
                         $("#previewImage").prepend(canvas); 
                         getCanvas = canvas; 
                         var imgageData =  
