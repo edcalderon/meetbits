@@ -44,9 +44,12 @@
     "datatables": "^1.10.13",
     "datatables.net-bs4": "^1.10.16",
     "daterangepicker": "^3.0.1",
+    "dotenv": "^7.0.0",
     "dragula": "^3.7.2",
     "dropzone": "^5.4.0",
     "echarts": "^4.0.4",
+    "ejs": "^2.7.1",
+    "express": "^4.16.4",
     "flot": "^0.8.0-alpha",
     "footable": "^2.0.6",
     "fullcalendar": "^3.9.0",
@@ -83,10 +86,8 @@
     "tinymce": "^4.7.11",
     "toastr": "^2.1.4",
     "typeahead.js": "^0.11.1",
-    "wnumb": "^1.1.0",
-    "express": "^4.16.4",
-    "dotenv": "^7.0.0",
-    "ejs": "^2.7.1"
+    "web3": "^1.2.4",
+    "wnumb": "^1.1.0"
   },
   "engines": {
     "node": "12.13.0",
