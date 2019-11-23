@@ -5,7 +5,7 @@ $("#buttonL").click(function() {
         if(res){
             meetBITS.address2mod.call(web3.eth.defaultAccount, (err, res) =>{
                 if (res){
-                    location.href="homeMod.html";
+                    location.href="homeAdm.html";
                 }
                 else {
                     location.href="vista_user.html";
