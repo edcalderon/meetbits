@@ -11,18 +11,19 @@ function iterar(n){
     for (i=0;i<=n;i++){
         console.log("i:"+i);
         meetBITS.usuarios(i,(err,user)=>{
-            onload.user=rol(user);
+            onload.user=leer_rol(user);
         })
     }
 }
 
-function rol(user){
+function leer_rol(user){
     meetBITS.address2mod(user[3],(err,rol)=>{
-        onload.rol=imprimir_fila(user,rol)
+        console.log("rol: "+rol+"**********");
+        onload.rol=leer_saldo(user,rol)
     })
 }
 
-function rol(user, rol){
+function leer_saldo(user, rol){
     meetBITS.saldo(user[3],(err,saldo)=>{
         onload.saldo=imprimir_fila(user,rol, saldo)
     })
@@ -30,11 +31,12 @@ function rol(user, rol){
 
 function imprimir_fila(user,rol, saldo){
     var usuarios = $('#usuarios').DataTable();
+    console.log("rol: "+rol);
     if(rol){
-        rolT="Moderador"
+        rolT="Moderador";
     }
     else {
-        rolT="Participante"
+        rolT="Participante";
     }
     usuarios.row.add( [
         user[0],
