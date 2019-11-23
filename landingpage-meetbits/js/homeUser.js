@@ -29,11 +29,11 @@ function showModalVoteDetal(urnaId){
  * Funcion encargada de realizar un voto de una urna para una junta
  * @param {*} vote si o no (true o false)
  */
-function vote(vote){
+function vote(vote,IDv,IDjunta){
     return new Promise(function(resolve, reject){
 
         // Realizar peticion
-        meetBITS.enviar_voto("", "", vote, (err, res) =>{
+        meetBITS.enviar_voto(IDjunta, IDv, vote, (err, res) =>{
             if (res){
                 resolve(true);
             }
