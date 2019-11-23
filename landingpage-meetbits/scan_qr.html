@@ -22,12 +22,10 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 
 <![endif]-->
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-    <script src="./js/scanqr.js"></script>
+
 </head>
 
-<body>
+<body onload="actualizar_juntas()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -262,15 +260,55 @@
                 <div class="row">
                     <div class="col-12" style="align-content: center; text-align: center; display: inline;">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="row m-b-0" style="align-content: center; text-align: center; display: inline;" >
-                                        <h2 class="card-title">Escanea la asistencia con un QR</h2>
-                                        <h4 class="card-subtitle">Has click para escaner</h4><br><br><br>
-                                        <div class="button-group">
-                                            <button type="button" onclick="scan()" class="btn waves-effect waves-light btn-primary">SCANEAR</button>
+                            <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Juntas</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                        <table class="table table-bordered" id="juntas" width="100%" cellspacing="0">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Lugar</th>
+                                                <th>Tema</th>
+                                            </tr>
+                                            </thead>
+                                            <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Lugar</th>
+                                                <th>Tema</th>
+                                            </tr>
+                                            </tfoot>
                                         </div>
-                                        
-                                </div>
+                                    </div>
+                            </div>
+                            <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Juntas</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                        <table class="table table-bordered" id="juntas" width="100%" cellspacing="0">
+                                            <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Clave Publica</th>
+                                                <th>Mensaje</th>
+                                            </tr>
+                                            </thead>
+                                            <tfoot>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Clave Publica</th>
+                                                <th>Mensaje</th>
+                                            </tr>
+                                            </tfoot>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="card-body">
                                 <div class="row m-b-0" style="align-content: center; text-align: center; display: inline;">
                                         <video id="preview" style="float: center;"></video>
                                 </div>
@@ -285,9 +323,6 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by AdminX. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -327,6 +362,22 @@
     <!--chartjs -->
     <script src="../../assets/libs/chart.js/dist/Chart.min.js"></script>
     <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+    <!--sweetAlert -->
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+    <!--DataTables -->
+    <script src="./js/datatables/jquery.dataTables.js"></script>
+    <script src="./js/datatables/dataTables.bootstrap4.js"></script>
+    <script src="./js/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/datatables/jquery.dataTables.js"></script>
+    <script src="./js/datatables/jquery.dataTables.min.js"></script>
+    <!--Js -->
+    <script src="./js/contract.js"></script>
+    <script src="./js/juntas_qr.js"></script>
+    <script src="./js/asistencias.js"></script>
+    <!--Qr -->
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script src="./js/scanqr.js"></script>
 </body>
 
 </html>
