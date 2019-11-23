@@ -289,43 +289,11 @@
                 <!-- Email campaign chart -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-lg-12 col-xl-6">
-                        <div class="card card-hover">
-                            <div class="card-body">
-                                <div class="d-md-flex align-items-center">
-                                    <div>
-                                        <h4 class="card-title">Junta</h4>
-                                        <h5 class="card-subtitle">Overview of Email Campaigns</h5>
-                                    </div>
-                                    <div class="ml-auto align-items-center">
-                                        <div class="dl">
-                                                <a href="#">Crear urna</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- column -->
-                                <div class="row m-t-40">
-                                    <!-- column -->
-                                    <div class="col-lg-6">
-                                        <div id="visitor" style="height:290px; width:100%;" class="m-t-20"></div>
-                                    </div>
-                                    <!-- column -->
-                                    <div class="col-lg-6">
-                                        <h1 class="display-6 m-b-0 font-medium">45%</h1>
-                                        <span>Open Ratio for Campaigns</span>
-                                        <ul class="list-style-none">
-                                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-cyan font-12"></i> Hombres <span class="float-right">45%</span></li>
-                                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-info font-12"></i> Mujeres <span class="float-right">14%</span></li>
-                                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-orange font-12"></i> Estudiantes <span class="float-right">25%</span></li>
-                                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i> Trabajadores <span class="float-right">17%</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- column -->
-                            </div>
-                        </div>
+                    <div id="col-cards-events" class="col-lg-12 col-xl-12">
+                       <!--  events goes here  -->
+              
                     </div>
-                    
+                </div>  
                 
             </div>
             <!-- ============================================================== -->
@@ -376,6 +344,89 @@
     <!--chartjs -->
     <script src="../../assets/libs/chart.js/dist/Chart.min.js"></script>
     <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+    <script>
+    var i = 0
+    for (i=0;i<3;i++){
+        card = `<div class="card card-hover">
+            <div class="card-body">
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title">Junta</h4>
+                        <h5 class="card-subtitle">Overview of Email Campaigns</h5>
+                    </div>
+                    <div class="ml-auto align-items-center">
+                        <div class="dl">
+                                <a href="#">Crear urna</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- column -->
+                <div class="row m-t-40">
+                    <!-- column -->
+                    <div class="col-lg-6">
+                        <div id="visitor-${i} style="height:290px; width:100%;" class="m-t-20"></div>
+                    </div>
+                    <!-- column -->
+                    <div class="col-lg-6">
+                        <h1 class="display-6 m-b-0 font-medium">45%</h1>
+                        <span>Open Ratio for Campaigns</span>
+                        <ul class="list-style-none">
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-cyan font-12"></i> Hombres <span class="float-right">45%</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-info font-12"></i> Mujeres <span class="float-right">14%</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-orange font-12"></i> Estudiantes <span class="float-right">25%</span></li>
+                            <li class="m-t-20"><i class="fas fa-circle m-r-5 text-primary font-12"></i> Trabajadores <span class="float-right">17%</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- column -->
+            </div>
+        </div>`;
+        $('#col-cards-events').append(card)
+
+      
+        }    
+    </script>
+    <script>
+    for (i=0;i<3;i++){
+    $( document ).ready(function() {
+        var chart = c3.generate({
+            bindto: `#visitor-${i}`,
+            data: {
+                columns: [
+                    ['Open', 45],
+                    ['Clicked', 15],
+                    ['Un-opened', 27],
+                    ['Bounced', 18],
+                ],
+
+                type: 'donut',
+                tooltip: {
+                show: true
+            }
+            },
+            donut: {
+                label: {
+                    show: false
+                },
+                title: "Ratio",
+                width: 35,ss
+                
+            },
+            
+            legend: {
+                hide: true
+                //or hide: 'data1'
+                //or hide: ['data1', 'data2']
+                
+            },
+            color: {
+                pattern: ['#40c4ff', '#2961ff', '#ff821c', '#7e74fb']
+            }
+        });
+    });
+}
+    </script>
+    
 </body>
 
 </html>
