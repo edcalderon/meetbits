@@ -24,7 +24,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body onload="actualizar_juntas()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -217,12 +217,18 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="p-15 m-t-10"><a href="./create_event.html" class="btn btn-block create-btn text-white no-block d-flex align-items-center"><i class="fa fa-plus-square"></i> <span class="hide-menu m-l-5">Create New</span> </a></li>
+                       
+                        
                         <!-- User Profile-->
-                        <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Eventos</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Eventos</span></a>
+                        <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Moderador</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Inicio</span></a>
+                           
+                        
+                            
+                        <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="scan_qr.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Leer asistencia QR</span></a>
+                            <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="generate_qr.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Generar QR</span></a>    
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="index.html" class="sidebar-link"><i class="mdi mdi-adjust"></i><span class="hide-menu"> Evento1 </span></a></li>
+                                
                             </ul>
                         </li>
                     </ul>
@@ -257,107 +263,64 @@
                 </div>
             </div>
             <div class="container-fluid">
-                
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Mis juntas asociadas</h4>
-                        <h6 class="card-subtitle">Listado de Juntas asociadas</h6>
-                        <table id="tbMeets" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Juntas</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered" id="juntas" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Lugar</th>
+                            <th>Tema</th>
+                            <th>Capacidad</th>
+                            <th>Asistentes</th>
+                            <th>Mensaje</th>
+                            <th>Votaciones</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th>ID</th>
+                            <th>Lugar</th>
+                            <th>Tema</th>
+                            <th>Capacidad</th>
+                            <th>Asistentes</th>
+                            <th>Mensaje</th>
+                            <th>Votaciones</th>
+                          </tr>
+                        </tfoot>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-bordered" id="votaciones" width="100%" cellspacing="0">
                             <thead>
-                                <tr>
-                                    <th data-sort-initial="true" data-toggle="true">Nombre</th>
-                                    <th>Asunto</th>
-                                    <th data-hide="phone, tablet">Capacidad</th>
-                                    <th data-hide="phone, tablet">Status</th>
-                                    <th data-sort-ignore="true" class="min-width">Ver Urnas</th>
-                                </tr>
+                              <tr>
+                                <th>IDJunta</th>
+                                <th>Tema</th>
+                                <th>Positivo</th>
+                                <th>Negativo</th>
+                                <th>Total Votos</th>
+                                <th>Votar</th>
+                              </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Junta 1</td>
-                                    <td>Asunto 1</td>
-                                    <td>10</td>
-                                    <td><span class="label label-table label-success">Activo</span> </td>
-                                    <td class="text-align">
-                                        <button type="button" class="btn btn-outline-dark" onclick="showModalVoteDetal(1)"><i class="fa fa-heart"></i> Ver</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Junta 2</td>
-                                    <td>Asunto 2</td>
-                                    <td>50</td>
-                                    <td><span class="label label-table label-danger">Terminado</span> </td> 
-                                    <td class="text-align">
-                                        <button type="button" class="btn btn-outline-dark" onclick="showModalVoteDetal(2)"><i class="fa fa-heart"></i> Ver</button>
-                                    </td>
-                                </tr>
-                            </tbody>
                             <tfoot>
-                                <tr>
-                                    <td colspan="6">
-                                        <div class="text-right">
-                                            <ul class="pagination">
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                              <tr>
+                                <th>IDJunta</th>
+                                <th>Tema</th>
+                                <th>Positivo</th>
+                                <th>Negativo</th>
+                                <th>Total Votos</th>
+                                <th>Votar</th>
+                              </tr>
                             </tfoot>
-                        </table>
-                    </div>
-                    <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                              <h6 class="m-0 font-weight-bold text-primary">Juntas</h6>
-                            </div>
-                            <div class="card-body">
-                              <div class="table-responsive">
-                                <table class="table table-bordered" id="juntas" width="100%" cellspacing="0">
-                                  <thead>
-                                    <tr>
-                                      <th>ID</th>
-                                      <th>Lugar</th>
-                                      <th>Tema</th>
-                                      <th>Capacidad</th>
-                                      <th>Asistentes</th>
-                                      <th>Accion</th>
-                                    </tr>
-                                  </thead>
-                                  <tfoot>
-                                    <tr>
-                                      <th>ID</th>
-                                      <th>Lugar</th>
-                                      <th>Tema</th>
-                                      <th>Capacidad</th>
-                                      <th>Asistentes</th>
-                                      <th>Accion</th>
-                                    </tr>
-                                  </tfoot>
-                              </div>
-                            </div>
-                          </div>
+                        </div>
+                      </div>
                 </div>
-
-            </div>
-            <div class="modal fade bs-example-modal-lg" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="voteDetail">Urna de votación</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <div class="modal-body">
-                            <h4>Votación</h4>
-                            <p>Descripcion de la Votacion</p>
-                            <p>Por favor seleccione si o no para votar a favor o en contra.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success waves-effect text-left votebutton" id="btnVoteTrue" data-dismiss="modal" vote="true">Votar Si</button>
-                            <button type="button" class="btn btn-danger waves-effect text-left votebutton" data-dismiss="modal" id="btnBoteFalse" vote="true">Votar No</button>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
+              </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -403,10 +366,19 @@
     <!--chartjs -->
     <script src="../../assets/libs/chart.js/dist/Chart.min.js"></script>
     <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
-    <script src="../../assets/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="../../assets/libs/sweetalert2/sweet-alert.init.js"></script>
-    <script src="./js/homeUser.js"></script>
+    <!--personalizados -->
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+    <script src="./js/datatables/jquery.dataTables.js"></script>
+    <script src="./js/datatables/dataTables.bootstrap4.js"></script>
+    <script src="./js/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/datatables/jquery.dataTables.js"></script>
+    <script src="./js/datatables/jquery.dataTables.min.js"></script>
     <script src="./js/contract.js"></script>
+    <script src="./js/juntas_user.js"></script>
+    <script src="./js/votaciones_user.js"></script>
+    <script src="./js/homeUser.js"></script>
+    <script src="./js/mensajes.js"></script>
+    
 </body>
 
 </html>
