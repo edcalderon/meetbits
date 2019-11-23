@@ -16,8 +16,6 @@ function browserSync() {
 
 // This is for the path of sass compilation
 
-
-
 //Setting up the Watcher
 
 gulp.task('watch', function() {
