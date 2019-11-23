@@ -24,7 +24,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body onload="actualizar_juntas()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -257,27 +257,118 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body border-top">
-                                <div class="row m-b-0">
-  
+                <div class="col-8 card card-register mx-auto mt-5">
+                    <div class="card-header text-white" style="background-color: #ff5d5d;">Crear Junta</div>
+                        <div class="card-body">
+                            <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                <div class="input-field col s12 m6">
+                                    <label for="IDfactura">Lugar</label>
+                                    <input class="form-control" id="lugar" type="text" aria-describedby="nameHelp">
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <label for="IDfactura">Tema</label>
+                                    <input class="form-control" id="tema" type="text" aria-describedby="nameHelp">
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <label for="IDfactura">Capacidad</label>
+                                    <input class="form-control" id="capacidad" type="text" aria-describedby="nameHelp">
+                                </div>
                                 </div>
                             </div>
+                            </form>
+                            <div class="text-center">
+                            <a class="btn btn-primary btn-user btn-block" id="buyButton" onclick="crear_junta()">Crear</a>
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
                 </div>
-            </div>
+                <div class="col-8 card card-register mx-auto mt-5">
+                    <div class="card-header text-white" style="background-color: #ff5d5d;">Crear Votación</div>
+                        <div class="card-body">
+                            <form>
+                            <div class="form-group">
+                                <div class="form-row">
+                                <div class="input-field col s12 m6">
+                                    <label for="IDfactura">ID Junta</label>
+                                    <input class="form-control" id="IDjunta" type="text" aria-describedby="nameHelp">
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <label for="IDfactura">Tema</label>
+                                    <input class="form-control" id="temaV" type="text" aria-describedby="nameHelp">
+                                </div>
+                                </div>
+                            </div>
+                            </form>
+                            <div class="text-center">
+                            <a class="btn btn-primary btn-user btn-block" id="buyButton" onclick="crear_votacion()">Crear</a>
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                                </span>
+                            </div>
+                        </div>
+                </div>
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Participantes Registrados</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered" id="juntas" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Lugar</th>
+                            <th>Tema</th>
+                            <th>Capacidad</th>
+                            <th>Asistentes</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th>ID</th>
+                            <th>Lugar</th>
+                            <th>Tema</th>
+                            <th>Capacidad</th>
+                            <th>Asistentes</th>
+                          </tr>
+                        </tfoot>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table table-bordered" id="votaciones" width="100%" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>IDJunta</th>
+                                <th>Tema</th>
+                                <th>Positivo</th>
+                                <th>Negativo</th>
+                                <th>Total Votos</th>
+                              </tr>
+                            </thead>
+                            <tfoot>
+                              <tr>
+                                <th>IDJunta</th>
+                                <th>Tema</th>
+                                <th>Positivo</th>
+                                <th>Negativo</th>
+                                <th>Total Votos</th>
+                              </tr>
+                            </tfoot>
+                        </div>
+                      </div>
+                </div>
+              </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by AdminX. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -317,6 +408,19 @@
     <!--chartjs -->
     <script src="../../assets/libs/chart.js/dist/Chart.min.js"></script>
     <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+    <!--personalizados -->
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+    <script src="./js/datatables/jquery.dataTables.js"></script>
+    <script src="./js/datatables/dataTables.bootstrap4.js"></script>
+    <script src="./js/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/datatables/jquery.dataTables.js"></script>
+    <script src="./js/datatables/jquery.dataTables.min.js"></script>
+    <script src="./js/contract.js"></script>
+    <script src="./js/crear_junta.js"></script>
+    <script src="./js/crear_votacion.js"></script>
+    <script src="./js/juntas.js"></script>
+    <script src="./js/votaciones.js"></script>
+    
 </body>
 
 </html>

@@ -163,6 +163,10 @@ var MeetContract = web3.eth.contract([
 		"name": "juntas",
 		"outputs": [
 			{
+				"name": "IDjr",
+				"type": "uint256"
+			},
+			{
 				"name": "lugar",
 				"type": "string"
 			},
@@ -183,6 +187,25 @@ var MeetContract = web3.eth.contract([
 		"constant": true,
 		"inputs": [],
 		"name": "IDu",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "IDj2total_asistentes",
 		"outputs": [
 			{
 				"name": "",
@@ -498,6 +521,10 @@ var MeetContract = web3.eth.contract([
 		"name": "address_mod2juntas_creadas",
 		"outputs": [
 			{
+				"name": "IDjr",
+				"type": "uint256"
+			},
+			{
 				"name": "lugar",
 				"type": "string"
 			},
@@ -625,6 +652,10 @@ var MeetContract = web3.eth.contract([
 		],
 		"name": "address2juntas",
 		"outputs": [
+			{
+				"name": "IDjr",
+				"type": "uint256"
+			},
 			{
 				"name": "lugar",
 				"type": "string"
@@ -853,5 +884,5 @@ var MeetContract = web3.eth.contract([
 	}
 ]);
 
-var meetBITS = MeetContract.at('0x3b629515000bc500c5512941adb34f6bf7fc8c38');
+var meetBITS = MeetContract.at('0x111dE0761Fe69dfFA4e0AAa85b1F17A67b1fA16B');
 console.log(meetBITS);
