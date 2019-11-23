@@ -31,8 +31,6 @@ function imprimir_fila(junta,asistentes){
         junta[0],
         junta[1],
         junta[2],
-        junta[3],
-        asistentes,
         ] ).draw( false );
 }
 
