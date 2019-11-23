@@ -33,7 +33,7 @@ $(window).load(function(){
 
     if(val){
         $('#qr-example').qrcode(val);
-        $('#qr-div').append(`<a id="download" href="#"> Descargar </a> `);
+        $('#qr-div').append(`<a id="download" href="#"> Crear </a> `);
         $(document).ready(function() { 
           
             // Global variable 
@@ -45,7 +45,7 @@ $(window).load(function(){
             $("#download").on('click', function() { 
                 html2canvas(element, { 
                     onrendered: function(canvas) { 
-                        $("#previewImage").append(canvas); 
+                        $("#previewImage").prepend(canvas); 
                         getCanvas = canvas; 
                         var imgageData =  
                         getCanvas.toDataURL("image/png"); 
@@ -54,13 +54,12 @@ $(window).load(function(){
                         // it instead of just showing it 
                         var newData = imgageData.replace( 
                         /^data:image\/png/, "data:application/octet-stream"); 
-                    
+                        $("#download").text('Descargar')
                         $("#download").attr( 
-                        "download", "GeeksForGeeks.png").attr( 
+                        "download", "WalletQR.png").attr( 
                         "href", newData); 
                         } 
                 }); 
-
             }); 
         }); 
         
