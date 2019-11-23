@@ -2,9 +2,9 @@
   "name": "admin",
   "version": "1.0.0",
   "description": "This is the Admin template with the bootstrap 4",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "nodemon ./src/app.js"
   },
   "keywords": [
     "admin",
