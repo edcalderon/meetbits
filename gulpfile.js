@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 function browserSync() {
         browsersync.init({
             server: {
-                baseDir: './html/meet-bits/index-meetbits.html'
+                baseDir: './landingpage-meetbits'
             }
         });
 }
