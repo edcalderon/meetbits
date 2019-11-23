@@ -23,10 +23,6 @@ function showModalVoteDetal(urnaId){
         else
             swal("", "No se ha configurado un voto valido", "error")
     });
-
-    $('#btnBoteFalse').click(function(){
-        swal("Good job!", "La botacion .", "error")
-    });
 }
 
 /**
