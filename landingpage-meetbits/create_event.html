@@ -221,14 +221,24 @@
                         
                         <!-- User Profile-->
                         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Moderador</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Inicio</span></a>
-                           
-                        
-                            
-                        <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="scan_qr.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Leer asistencia QR</span></a>
-                            <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="generate_qr.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Generar QR</span></a>    
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link  waves-effect waves-dark" href="index.html" aria-expanded="false">
+                                <i class="mdi mdi-view-dashboard"></i>
+                                <span class="hide-menu">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link  waves-effect waves-dark" href="scan_qr.html" aria-expanded="false">
+                                <i class="mdi mdi-view-dashboard"></i>
+                                <span class="hide-menu">Leer asistencia QR</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link  waves-effect waves-dark" href="generate_qr.html" aria-expanded="false">
+                                <i class="mdi mdi-view-dashboard"></i>
+                                <span class="hide-menu">Generar QR</span>
+                            </a>    
                             <ul aria-expanded="false" class="collapse  first-level">
-                                
                             </ul>
                         </li>
                     </ul>
@@ -369,6 +379,26 @@
                             </tfoot>
                         </div>
                       </div>
+                      <div class="modal fade bs-example-modal-lg" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="voteDetail">Escanear código QR</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>Por favor escanee el codigo de barras para registrar la asistencia.</p>
+                                        <video id="preview" style="float: center;"></video>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success waves-effect text-left" id="btnClose" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                      
                 </div>
               </div>
             <!-- ============================================================== -->
@@ -428,6 +458,9 @@
     <script src="./js/crear_votacion.js"></script>
     <script src="./js/juntas.js"></script>
     <script src="./js/votaciones.js"></script>
+    <!--Qr -->
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     
 </body>
 

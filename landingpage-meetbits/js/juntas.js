@@ -1,5 +1,6 @@
 
 var juntas;
+var scanner;
 /*
 function getMeeting(){
     return new Priomise(function(resolve, reject){
@@ -97,6 +98,77 @@ function imprimir_fila(junta,asistentes){
 
 }
 
+$("#modal1").on('hidden.bs.modal', function () {
+    try {
+        scanner.stop();    
+    } catch (err) {
+    }
+});
+
 function showQR(juntaID){
-    alert(juntaID);
+    $("#modal1").modal();
+    scan(juntaID);
+}
+
+
+
+function scan(IDjunta){
+    scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+        
+        scanner.addListener('scan', function (content) {
+            //alert(content);
+            swal({
+                title: 'QR Escaneado',
+                text: 'Haz escaneado una nueva asistencia de la dirección:' + content + '. Desea regitrarla?',
+                type: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'SI',
+                cancelButtonText: 'NO',
+                // cancelButtonText: false
+                }).then((isConfirm) => {
+                    if (isConfirm) {
+                        registrar_asistencia(IDjunta, content);
+                    } else {
+                        debugger;
+                        // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
+                    }
+                });
+        });
+        
+        // Mostrar camara
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
+            }
+        })
+        .catch(function (e) {
+            console.error(e);
+        });
+  }
+
+  function registrar_asistencia(IDjunta,content){ 
+    console.log("content: "+content);
+    console.log("IDjunta: "+IDjunta);
+    meetBITS.registrar_asistencia(content, IDjunta,(res) =>{
+        debugger;
+        swal({
+            title: 'Asistencia Registrada',
+            text: 'Haz registrado la asistencia de la dirección:'+content+'con exito, ya puede enviar mensaje o participar de las votaciones',
+            type: 'success',
+            showCancelButton: false,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'OK',
+            // cancelButtonText: false
+          }).then((isConfirm) => {
+
+            if (isConfirm) {
+                actualizar_asistencias(IDjunta, content);
+            } else {
+              // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
+            }
+          });
+    })
 }
