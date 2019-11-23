@@ -4,7 +4,7 @@ function scan(){
       scanner.addListener('scan', function (content) {
 
       alert(content);
-
+    
       });
 
       Instascan.Camera.getCameras().then(function (cameras) {
