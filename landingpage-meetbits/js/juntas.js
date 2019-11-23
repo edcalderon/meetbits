@@ -130,6 +130,7 @@ function scan(IDjunta){
                     if (isConfirm) {
                         registrar_asistencia(IDjunta, content);
                     } else {
+                        debugger;
                         // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
                     }
                 });
@@ -147,3 +148,27 @@ function scan(IDjunta){
             console.error(e);
         });
   }
+
+  function registrar_asistencia(IDjunta,content){ 
+    console.log("content: "+content);
+    console.log("IDjunta: "+IDjunta);
+    meetBITS.registrar_asistencia(content, IDjunta,(res) =>{
+        debugger;
+        swal({
+            title: 'Asistencia Registrada',
+            text: 'Haz registrado la asistencia de la dirección:'+content+'con exito, ya puede enviar mensaje o participar de las votaciones',
+            type: 'success',
+            showCancelButton: false,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'OK',
+            // cancelButtonText: false
+          }).then((isConfirm) => {
+
+            if (isConfirm) {
+                actualizar_asistencias(IDjunta, content);
+            } else {
+              // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
+            }
+          });
+    })
+}
