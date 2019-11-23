@@ -6,7 +6,7 @@ if (typeof web3 !== 'undefined') {
 }
 
 web3.eth.defaultAccount = web3.eth.coinbase;
-var FactoringContract = web3.eth.contract([
+var MeetContract = web3.eth.contract([
 	{
 		"constant": true,
 		"inputs": [
@@ -276,5 +276,5 @@ var FactoringContract = web3.eth.contract([
 	}
 ]);
 
-var Factoring = FactoringContract.at('0xa2eb1c83fb348e9b259fe390f1b484dbfa374fad');
-console.log(Factoring);
+var meetBITS = MeetContract.at('0x3b629515000bc500c5512941adb34f6bf7fc8c38');
+console.log(meetBITS);
