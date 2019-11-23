@@ -33,7 +33,36 @@ $(window).load(function(){
 
     if(val){
         $('#qr-example').qrcode(val);
-        $('#qr-div').append(`<input type="button"/>`);
+        $('#qr-div').append(`<a id="download" href="#"> Descargar </a> `);
+        $(document).ready(function() { 
+          
+            // Global variable 
+            var element = $("#qr-example");  
+          
+            // Global variable 
+            var getCanvas;  
+
+            $("#download").on('click', function() { 
+                html2canvas(element, { 
+                    onrendered: function(canvas) { 
+                        $("#previewImage").append(canvas); 
+                        getCanvas = canvas; 
+                        var imgageData =  
+                        getCanvas.toDataURL("image/png"); 
+                  
+                        // Now browser starts downloading  
+                        // it instead of just showing it 
+                        var newData = imgageData.replace( 
+                        /^data:image\/png/, "data:application/octet-stream"); 
+                    
+                        $("#download").attr( 
+                        "download", "GeeksForGeeks.png").attr( 
+                        "href", newData); 
+                        } 
+                }); 
+
+            }); 
+        }); 
         
     }else{
     	alert("Please provide some text or url !");
