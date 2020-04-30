@@ -57,7 +57,7 @@
     "gmaps": "^0.4.24",
     "gulp-cli": "^2.2.0",
     "inputmask": "^3.3.11",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-asColorPicker": "^0.4.4",
     "jquery-sessiontimeout": "^1.1.0",
     "jquery-steps": "^1.1.0",
